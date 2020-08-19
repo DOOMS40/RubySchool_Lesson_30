@@ -1,0 +1,32 @@
+<h4>Post details:</h4>
+<br>
+
+<% Post.find_each do |post|%>
+	<p>
+		<%= post.avtor%>
+		<%= post.content %>
+		<br>
+		<br>
+	</p>
+<% end %>
+<br>
+<h4>
+	Comments:
+</h4>
+<br>
+<% Comment.find_each do |comment|%>
+	<p>
+		<%= comment.message%>
+		<br>
+		<br>
+		<span style="font-size: 75%;color: #999"><%= @created_date%></span>
+	</p>
+	<hr>
+
+<% end %>
+<p>	
+	<form action="/details/<%= Post.id method="POST" role="form">
+	  <textarea name="comment[message]" class="form-control"  rows="6" placeholder="Type comment text here"></textarea> <br>
+	  <button type="submit" class="btn btn-primary">Add comment</button>
+	</form>
+</p>

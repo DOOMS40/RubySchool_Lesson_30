@@ -1,0 +1,12 @@
+<h2>
+	Latests posts:
+</h2>
+<br>
+<% @posts.each do |post|%>
+<p>
+	<%= post.avtor %>
+	<%= post.content %>
+	<hr>
+	<a href="details/ <%= :post_id %>"> Comments</a>
+</p>	
+<% end %>
